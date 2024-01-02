@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询结果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f5fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        table {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        td:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        h1 {
+            text-align: center;
+            color: #2980b9;
+            font-size: 54px;
+            margin-bottom: 20px;
+        }
+        .tijiao{
+	            background-color:dodgerblue;
+	            color:white;
+	            width: 280px;
+	            height: 35px;
+	            border:1px;
+	            font-size: 16px;
+                border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>查询结果</h1>
+<div class="container">
+    <form action="/download" method="post">
+        {% for result in results %}
+        <input type="hidden" name="results"
+               value="{{ result[0] }}, {{ result[1] }}, {{ result[2] }}, {{ result[3] }}, {{ result[4] }}, {{ result[5] }}, {{ result[6] }}, {{ result[7] }}, {{ result[8] }}, {{ result[9] }}, {{ result[10] }}, {{ result[11] }}, {{ result[12] }}, {{ result[13] }}, {{ result[14] }}, {{ result[15] }}, {{ result[16] }}, {{ result[17] }}, {{ result[18] }}, {{ result[19] }}, {{ result[20] }}">
+        {% endfor %}
+        <input type="submit" value="下载查询结果" class="tijiao">
+    </form>
+</div>
+<div class="container">
+    <table>
+        <tr>
+            <th>部门代码</th>
+            <th>部门名称</th>
+            <th>用人司局</th>
+            <th>机构性质</th>
+            <th>招考职位</th>
+            <th>职位属性</th>
+            <th>职位分布</th>
+            <th>职位简介</th>
+            <th>职位代码</th>
+            <th>机构层级</th>
+            <th>考试类别</th>
+            <th>招考人数</th>
+            <th>专业</th>
+            <th>学历</th>
+            <th>学位</th>
+            <th>政治面貌</th>
+            <th>基层工作最低年限</th>
+            <th>服务基层项目工作经历</th>
+            <th>是否在面试阶段组织专业能力</th>
+            <th>面试人员比例</th>
+            <th>工作地点</th>
+            <th>落户地点</th>
+            <!-- 添加更多的表头，以显示数据库中的列 -->
+        </tr>
+        {% for row in results %}
+        <tr>
+            {% for i in range(0,22) %}
+            <td>{{ row[i+1] }}</td>
+            {% endfor %}
+            <!-- 添加更多的单元格，以显示数据库中的值 -->
+        </tr>
+        {% endfor %}
+        {% if not results %}
+        <tr>
+            <td colspan="2">No results found.</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+</div>
+</body>
+</html>

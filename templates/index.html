@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国家公务员考试新传职位信息查询平台</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f5fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 10px; /* 缩小页面边距 */
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2980b9;
+            font-size: 54px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* 间距均匀分布 */
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex-basis: 25%; /* 设置宽度 */
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-group select,
+        .form-group button {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-group select {
+            appearance: none; /* 去除默认样式 */
+            background-color: #fff; /* 白色背景 */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%232c3e50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>'); /* 下拉箭头 */
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .form-group select:hover {
+            border-color: #2980b9; /* 深蓝色边框 */
+        }
+
+        .form-group select:focus {
+            outline: none; /* 去除聚焦时的外边框 */
+            border-color: #3498db; /* 浅蓝色边框 */
+        }
+
+        .form-group button {
+
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #3498db;
+        }
+
+        .content {
+            color: #555555;
+            text-align: center;
+            font-size: 18px;
+        }
+        .tijiao{
+	            background-color:dodgerblue;
+	            color:white;
+	            width: 280px;
+	            height: 35px;
+	            border:1px;
+	            font-size: 16px;
+                border-radius: 8px;
+        }
+        .label6{
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: block;
+            border-radius: 5px;
+            height: 30px;
+            width:270px;
+            }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>国家公务员考试新传职位信息查询平台</h1>
+
+    <h2>职位查询</h2>
+    <form action="/submit" method="post">
+        <div class="form-group">
+            <label for="year">年份:</label>
+            <select id="year" name="year">
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="education">学历:</label>
+            <select id="education" name="education">
+                <option value="">所有</option>
+                <option value="本科或硕士研究生">本科或硕士研究生</option>
+                <option value="本科及以上">本科及以上</option>
+                <option value="大专及以上">大专及以上</option>
+                <option value="仅限本科">仅限本科</option>
+                <option value="仅限硕士研究生">仅限硕士研究生</option>
+                <option value="硕士研究生及以上">硕士研究生及以上</option>
+                <option value="大专或本科">大专或本科</option>
+                <option value="仅限大专">仅限大专</option>
+                <option value="仅限博士研究生">仅限博士研究生</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="politics">政治面貌:</label>
+            <select id="politics" name="politics">
+                <option value="">所有</option>
+                <option value="不限">不限</option>
+                <option value="中共党员">中共党员</option>
+                <option value="中共党员或共青团员">中共党员或共青团员</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="level">机构层级:</label>
+            <select id="level" name="level">
+                <option value="">所有</option>
+                <option value="省（副省）级">省（副省）级</option>
+                <option value="市（地）级">市（地）级</option>
+                <option value="县（区）级及以下">县（区）级及以下</option>
+                <option value="中央">中央</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="work_years">基层工作最低年限：</label>
+            <select id="work_years" name="work_years">
+                <option value="无限制">无限制</option>
+                <option value="一年">一年</option>
+                <option value="二年">二年</option>
+                <option value="三年">三年</option>
+                <option value="五年以上">五年以上</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="location">工作地区:</label>
+            <select id="location" name="location">
+                <option value="">所有</option>
+                <option value="北京市">北京市</option>
+                <option value="上海市">上海市</option>
+                <option value="广东省">广东省</option>
+                <option value="江苏省">江苏省</option>
+                <option value="浙江省">浙江省</option>
+                <option value="山东省">山东省</option>
+                <option value="河南省">河南省</option>
+                <option value="湖北省">湖北省</option>
+                <option value="湖南省">湖南省</option>
+                <option value="四川省">四川省</option>
+                <option value="重庆市">重庆市</option>
+                <option value="天津市">天津市</option>
+                <option value="辽宁省">辽宁省</option>
+                <option value="吉林省">吉林省</option>
+                <option value="黑龙江省">黑龙江省</option>
+                <option value="福建省">福建省</option>
+                <option value="安徽省">安徽省</option>
+                <option value="江西省">江西省</option>
+                <option value="山西省">山西省</option>
+                <option value="陕西省">陕西省</option>
+                <option value="海南省">海南省</option>
+                <option value="贵州省">贵州省</option>
+                <option value="云南省">云南省</option>
+                <option value="西藏自治区">西藏自治区</option>
+                <option value="甘肃省">甘肃省</option>
+                <option value="青海省">青海省</option>
+                <option value="宁夏回族自治区">宁夏回族自治区</option>
+                <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                <option value="内蒙古自治区">内蒙古自治区</option>
+                <option value="香港特别行政区">香港特别行政区</option>
+                <option value="澳门特别行政区">澳门特别行政区</option>
+                <option value="台湾省">台湾省</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="major">专业:</label>
+            <input type="text" id="major" name="major" class="label6"><br>
+        </div>
+        <div class="form-group">
+            <br><br>
+            <input type="submit" value="查询" class="tijiao">
+        </div>
+    </form>
+
+    <h2>职位数据</h2>
+    <!--    表：近六年国考中新传大类可报岗位数和招收人数-->
+
+    <!--    这张表用excel画的也不错-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16264897">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+
+    <div class="content">
+        <p>从2019年到2024年，可报岗位数量整体呈现出波动上升的趋势，尤其是在2021年到2023年之间，数量有较大幅度的增长。</p>
+        <p>招考总人数也呈现出整体上升的趋势，尤其是在2021年到2023年之间，招考总人数增长较为明显。</p>
+        <p>基于这些观察，可以推测新传大类在国考中的吸引力逐渐增强，招考热度呈上升趋势。</p>
+        <p>我们建立一个线性回归模型来预测未来的可报岗位数量和招考总人数。</p>
+        <p>根据模型预测，2025年国考中新传大类可报岗位数量预计为 2761 个，招考总人数预计为 5586 人。</p>
+    </div>
+    <br>
+    <!--表：近六年国考中招考人数排名前15的专业-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16264641">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+    <br>
+
+    <!--    表：近六年国考中招考人数排名前15的专业排名变化-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16264632">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+    <div class="content">
+        <p>2019-2024年，新闻传播学类在国考岗位表“专业”一栏中出现的频次排名稳定在第11-12名，招收人数与其他专业相比也相对较多。</p>
+        <p>财政学类专业招收岗位稳居第一名。</p>
+    </div>
+    <br>
+    <!--近六年国考中新传大类招收人数增长率-->
+    <!--    这张表用excel画的更好一点-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16265120">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+
+    <div class="content">
+        <p>从2019年到2024年，国考中新闻传播学大类的招收人数整体呈上升趋势，2024年稍有下降。</p>
+
+    </div>
+    <br>
+    <!--    可报岗位数增长率-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16304958">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+    <div class="content">
+
+        <p>可报岗位数量在2020年大幅增加，2022年小幅增加，整体呈波动上升，近两年略有下降。</p>
+        <p>值得注意的是，尽管可报岗位数在某些年份有所减少，但招考总人数并不总是随之减少，</p>
+        <p>这可能反映了对于相对稀缺的岗位，仍然存在着较高的竞争。</p>
+    </div>
+    <br>
+    <!--表：近六年国考中新传大类可保岗位对不同学历的招考比重-->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/16257975">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+    <div class="content">
+
+        <p>国考中，新闻传播学大类可报岗位对学历的要求越来越高。</p>
+        <p>在所有年份中，本科及以上的学历要求都占据主导地位，其可报岗位数和招考人数均较高。</p>
+        <p>仅限本科的学历要求在可报岗位数和招考人数上有显著的增长趋势。</p>
+        <p>大专及以上、仅限硕士研究生及以上等学历要求相对较少，但在总招考人数中的占比也有所增加。</p>
+
+    </div>
+</div>
+</body>
+</html>
